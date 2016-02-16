@@ -4,7 +4,7 @@ maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'
 description 'Installs and configures postfix for client or outbound relayhost, or to do SASL auth'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '3.7.0'
+version '3.7.1'
 issues_url 'https://github.com/chef-cookbooks/postfix/issues' if respond_to?(:source_url)
 source_url 'https://github.com/chef-cookbooks/postfix' if respond_to?(:issues_url)
 

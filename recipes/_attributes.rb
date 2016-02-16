@@ -52,7 +52,7 @@ if node['postfix']['use_access_maps']
 end
 
 if node['postfix']['use_virtual_aliases']
-  node.default_unless['postfix']['main']['virtual_alias_maps'] = ["#{node['postfix']['virtual_alias_db_type']}:#{node['postfix']['virtual_alias_db']}"]
+  node.default_unless['postfix']['main']['virtual_maps'] = ["#{node['postfix']['virtual_alias_db_type']}:#{node['postfix']['virtual_alias_db']}, #{node['postfix']['virtual_regexp_db_type']}:#{node['postfix']['virtual_regexp_db']}"]
 end
 
 if node['postfix']['use_virtual_aliases_domains']

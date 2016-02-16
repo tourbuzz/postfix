@@ -27,3 +27,16 @@ template node['postfix']['virtual_alias_db'] do
   notifies :run, 'execute[update-postfix-virtual-alias]'
   notifies :restart, 'service[postfix]'
 end
+
+execute 'update-postfix-virtual-regexp' do
+  command "postmap #{node['postfix']['virtual_regexp_db']}"
+  environment PATH: "#{ENV['PATH']}:/opt/omni/bin:/opt/omni/sbin" if platform_family?('omnios')
+  action :nothing
+end
+
+template node['postfix']['virtual_regexp_db'] do
+  source 'virtual_regexp.erb'
+  notifies :run, 'execute[update-postfix-virtual-regexp]'
+  notifies :restart, 'service[postfix]'
+end
+

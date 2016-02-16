@@ -30,6 +30,7 @@ default['postfix']['transports'] = {}
 default['postfix']['access'] = {}
 default['postfix']['virtual_aliases'] = {}
 default['postfix']['virtual_aliases_domains'] = {}
+default['postfix']['virtual_regexp'] = {}
 default['postfix']['main_template_source'] = 'postfix'
 default['postfix']['master_template_source'] = 'postfix'
 default['postfix']['sender_canonical_map_entries'] = {}
@@ -39,6 +40,7 @@ default['postfix']['aliases_db_type'] = 'hash'
 default['postfix']['transport_db_type'] = 'hash'
 default['postfix']['virtual_alias_db_type'] = 'hash'
 default['postfix']['virtual_alias_domains_db_type'] = 'hash'
+default['postfix']['virtual_regexp_db_type'] = 'regexp'
 
 case node['platform']
 when 'smartos'
@@ -48,6 +50,7 @@ when 'smartos'
   default['postfix']['access_db'] = '/opt/local/etc/postfix/access'
   default['postfix']['virtual_alias_db'] = '/opt/local/etc/postfix/virtual'
   default['postfix']['virtual_alias_domains_db'] = '/opt/local/etc/postfix/virtual_domains'
+  default['postfix']['virtual_regexp_db'] = '/opt/local/etc/postfix/virtual_regexp'
   default['postfix']['relay_restrictions_db'] = '/opt/local/etc/postfix/relay_restrictions'
 when 'freebsd'
   default['postfix']['conf_dir'] = '/usr/local/etc/postfix'
@@ -56,6 +59,7 @@ when 'freebsd'
   default['postfix']['access_db'] = '/usr/local/etc/postfix/access'
   default['postfix']['virtual_alias_db'] = '/usr/local/etc/postfix/virtual'
   default['postfix']['virtual_alias_domains_db'] = '/usr/local/etc/postfix/virtual_domains'
+  default['postfix']['virtual_regexp_db'] = '/usr/local/etc/postfix/virtual_regexp'
   default['postfix']['relay_restrictions_db'] = '/etc/postfix/relay_restrictions'
 when 'omnios'
   default['postfix']['conf_dir'] = '/opt/omni/etc/postfix'
@@ -64,6 +68,7 @@ when 'omnios'
   default['postfix']['access_db'] = '/opt/omni/etc/postfix/access'
   default['postfix']['virtual_alias_db'] = '/etc/omni/etc/postfix/virtual'
   default['postfix']['virtual_alias_domains_db'] = '/etc/omni/etc/postfix/virtual_domains'
+  default['postfix']['virtual_regexp_db'] = '/etc/omni/etc/postfix/virtual_regexp'
   default['postfix']['relay_restrictions_db'] = '/opt/omni/etc/postfix/relay_restrictions'
   default['postfix']['uid'] = 11
 else
@@ -73,6 +78,7 @@ else
   default['postfix']['access_db'] = '/etc/postfix/access'
   default['postfix']['virtual_alias_db'] = '/etc/postfix/virtual'
   default['postfix']['virtual_alias_domains_db'] = '/etc/postfix/virtual_domains'
+  default['postfix']['virtual_regexp_db'] = '/etc/postfix/virtual_regexp'
   default['postfix']['relay_restrictions_db'] = '/etc/postfix/relay_restrictions'
 end
 
